@@ -1,0 +1,51 @@
+2 pointer method
+public class Solution {
+    public static int longestSubarrayWithSumK(int []a, long k) {
+        int left = 0,right =0,maxLen=0;
+        long sum=a[0];
+        int len=a.length;
+        while(right<len){
+            while(left<right && sum>k){
+                 sum-=a[left];
+                 left++;
+            }
+            if(sum==k){
+              maxLen=Math.max(maxLen,right-left+1);
+            }
+            right++;
+           if(right <len) sum+=a[right];
+            
+        }
+        return maxLen;
+    }
+}
+
+hashing method
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int getLongestSubarray(int []nums, int k) {
+		long sum=0;
+		int maxLen=0;
+		Map<Long,Integer> map = new HashMap<>();
+
+		for(int i=0;i<nums.length;i++){
+			sum+=nums[i];
+			if(sum==k)
+				maxLen=Math.max(maxLen, i+1);
+			
+
+			long rem=sum-k;
+			if(map.containsKey(rem)){
+				int len=i-map.get(rem);
+				maxLen=Math.max(maxLen,len);
+			}
+
+			if(!map.containsKey(sum))
+				map.put(sum,i);
+			
+		}
+		return maxLen;
+	}
+}
