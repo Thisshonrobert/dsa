@@ -1,3 +1,5 @@
+
+// greater than n/2 occurance;
 import java.util.*;
 
 public class Mooresvotingalgo {
