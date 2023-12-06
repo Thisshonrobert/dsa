@@ -10,7 +10,6 @@ public class twosum {
                 return "YES";
             if (sum < target)
                 left++;
-
             else
                 right--;
 
