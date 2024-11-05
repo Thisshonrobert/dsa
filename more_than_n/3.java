@@ -31,4 +31,4 @@ class Solution {
         if(c2>=target) arr.add(e2);
         return arr;
     }
-}
+} 
